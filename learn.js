@@ -252,6 +252,27 @@ const anagramWord = (strA,strB) => {
 const answer = anagramWord("Earth","heArt");
 console.log(answer)
 
+///CeaserCipher
+
+const ceaserCipher = (strg,shift) => {
+    const alphaArr = "abcdefghijklmnopqrstuvwxyz".split('');
+    let result = "";
+     for(i = 0; i < strg.length; i++){
+        const char = strg[i];
+        indx = alphaArr.indexOf(char);
+
+        if(indx === -1){
+            result += char;
+            continue;
+        }
+     }
+     const encodIndx = (indx + shift) % 26;
+     result += alphaArr[encodIndx];
+
+     return result;
+}
+const ans1 = ceaserCipher('efgh',)
+console.log(ans1)
 
 
 
@@ -355,7 +376,7 @@ const letter = [...vowel,...vowel2]
 const arr = [24,64,82,88];
 
 arr.forEach(function(num,i){
- console.log(`${i}`)
+ //console.log(`${i}`)
 })
 // console.log(arr.at(-1));
 // console.log(arr[arr.length-1]);
@@ -368,9 +389,9 @@ const expenses = [3000, -2000, 5000, 10000, -15000, -500, 65000, 150000, -20000,
 
 for (const expense of expenses){
     if(expense > 0){
-        console.log(`you deposited ${expense}`)
+        //console.log(`you deposited ${expense}`)
     }else {
-        console.log(`you have withdraw ${Math.abs(expense)}`)
+        //console.log(`you have withdraw ${Math.abs(expense)}`)
     }
 }
 
@@ -378,9 +399,52 @@ console.log("--------this is 4 forEach loop-----")
 
 expenses.forEach(function(spending, i){
     if(spending > 0){
-        console.log(`movement ${i} you deposited ${spending}`)
+        //console.log(`movement ${i} you deposited ${spending}`)
     }else {
-        console.log(`movement ${i} you have withdraw ${Math.abs(spending)}`)
+        //console.log(`movement ${i} you have withdraw ${Math.abs(spending)}`)
     }
 
+}); 
+
+const checkDogs = (dogJulia, dogKate) => {
+dogJuliaCorrect = [...dogJulia];
+dogJuliaCorrect.splice(0,1);
+dogJuliaCorrect.splice(-2);
+const dog = [...dogJuliaCorrect,...dogKate];
+
+dog.forEach(function(dog,i){
+    if(dog >= 3){
+        //console.log(`Dog number ${i +1} is an adult, and is ${dog} years old`)
+    }else {
+        //console.log(`Dog number ${i +1} is still a puppy`)
+    }
 })
+}
+//checkDogs([3,5,2,12,7],[4,1,15,8,3]);
+//checkDogs([7,9,12,4,5],[3,8,5,9,10])
+
+//Data Transformation
+
+//**Map **Filter **reduce
+
+// Map
+
+const movements = [3000, -2000, 5000, 10000, -15000, -500, 65000, 150000, -20000, 200000];
+
+//const euroToUsd = 2.5;
+
+const moveEuroToUsd = movements.map(function(mov) {
+    return mov * 2.5;
+});
+// console.log(movements);
+// console.log(moveEuroToUsd)
+
+//Arrow function of map
+const movToUsd = movements.map(mov => mov * 3)
+
+const user = "James Abidemi Folorunsho"
+const userAbv = user
+.toLowerCase()
+.split(' ')
+.map(name => name[0]).join('')
+console.log(userAbv)
